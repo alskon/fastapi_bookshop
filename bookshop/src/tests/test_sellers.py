@@ -84,9 +84,10 @@ async def test_get_seller(db_session, async_client):
     await db_session.flush()
 
     headers = {
-        'Authorization': 
-        f'Bearer {tokens['seller_1']}'
-        }
+          'Authorization': 
+          f"Bearer {tokens['seller_1']}"
+    }
+
     response = await async_client.get(f"/api/v1/sellers/{seller_1.id}", headers=headers)
 
     assert response.status_code == status.HTTP_200_OK

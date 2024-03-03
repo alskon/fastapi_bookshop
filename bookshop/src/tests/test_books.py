@@ -16,7 +16,7 @@ async def test_create_book(db_session, async_client):
     seller = sellers.Seller(**test_seller)
     headers = {
           'Authorization': 
-          f'Bearer {tokens['seller_1']}'
+          f"Bearer {tokens['seller_1']}"
     }
     db_session.add(seller) 
     await db_session.flush() 
@@ -54,7 +54,7 @@ async def test_get_books(db_session, async_client):
     book_2 = books.Book(**test_book_2)
     headers = {
           'Authorization': 
-          f'Bearer {tokens['seller_1']}'
+          f"Bearer {tokens['seller_1']}"
     }
 
     db_session.add_all([book_1, book_2])
@@ -108,7 +108,7 @@ async def test_get_single_book(db_session, async_client):
 
     headers = {
           'Authorization': 
-          f'Bearer {tokens['seller_1']}'
+          f"Bearer {tokens['seller_1']}"
     }
 
     response = await async_client.get(f"/api/v1/books/{book_1.id}", headers=headers)
@@ -170,8 +170,8 @@ async def test_update_book(db_session, async_client):
 
     headers = {
           'Authorization': 
-          f'Bearer {tokens['seller_1']}'
-        }
+          f"Bearer {tokens['seller_1']}"
+    }
 
     response = await async_client.put(
         f"/api/v1/books/{book.id}",
